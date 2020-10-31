@@ -1,0 +1,15 @@
+﻿using NeedForSpeed.Motorcycles;
+
+namespace NeedForSpeed
+{
+    public class RaceMotorcycle : Motorcycle
+    {
+        public RaceMotorcycle(int horsePower, double fuel)
+            : base(horsePower, fuel)
+        {
+
+        }
+
+        public override double DefaultFuelConsumption { get => 8; }
+    }
+}
