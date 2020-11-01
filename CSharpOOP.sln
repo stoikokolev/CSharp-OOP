@@ -31,13 +31,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaCalories", "Encapsulat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interfaces and Abstraction", "Interfaces and Abstraction", "{619E3168-7BF8-449F-A5FA-F3284E53B63F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DefineAnInterfaceIPerson", "Interfaces and Abstraction\DefineAnInterfaceIPerson\DefineAnInterfaceIPerson.csproj", "{D7686FFC-1246-454E-8DB2-F1FA71C7FC14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DefineAnInterfaceIPerson", "Interfaces and Abstraction\DefineAnInterfaceIPerson\DefineAnInterfaceIPerson.csproj", "{D7686FFC-1246-454E-8DB2-F1FA71C7FC14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleImplementation", "Interfaces and Abstraction\MultipleImplementation\MultipleImplementation.csproj", "{7E2A1C62-AFB3-42CE-98A0-76ACDF543AA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultipleImplementation", "Interfaces and Abstraction\MultipleImplementation\MultipleImplementation.csproj", "{7E2A1C62-AFB3-42CE-98A0-76ACDF543AA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonInfo", "Interfaces and Abstraction\PersonInfo\PersonInfo.csproj", "{9F6FE679-369C-4109-845C-20E6374D9168}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonInfo", "Interfaces and Abstraction\PersonInfo\PersonInfo.csproj", "{9F6FE679-369C-4109-845C-20E6374D9168}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telephony", "Interfaces and Abstraction\Telephony\Telephony.csproj", "{B3B06467-964F-4F0D-8D35-B64A80663ADE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telephony", "Interfaces and Abstraction\Telephony\Telephony.csproj", "{B3B06467-964F-4F0D-8D35-B64A80663ADE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilitaryElite", "Interfaces and Abstraction\MilitaryElite\MilitaryElite.csproj", "{5DA7CE61-24AB-42B4-A3E9-176A36E48AC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +107,10 @@ Global
 		{B3B06467-964F-4F0D-8D35-B64A80663ADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3B06467-964F-4F0D-8D35-B64A80663ADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3B06467-964F-4F0D-8D35-B64A80663ADE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DA7CE61-24AB-42B4-A3E9-176A36E48AC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DA7CE61-24AB-42B4-A3E9-176A36E48AC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DA7CE61-24AB-42B4-A3E9-176A36E48AC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DA7CE61-24AB-42B4-A3E9-176A36E48AC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -125,6 +131,7 @@ Global
 		{7E2A1C62-AFB3-42CE-98A0-76ACDF543AA7} = {619E3168-7BF8-449F-A5FA-F3284E53B63F}
 		{9F6FE679-369C-4109-845C-20E6374D9168} = {619E3168-7BF8-449F-A5FA-F3284E53B63F}
 		{B3B06467-964F-4F0D-8D35-B64A80663ADE} = {619E3168-7BF8-449F-A5FA-F3284E53B63F}
+		{5DA7CE61-24AB-42B4-A3E9-176A36E48AC0} = {619E3168-7BF8-449F-A5FA-F3284E53B63F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {398003F2-FEFC-46CD-8380-85924130F2DD}
