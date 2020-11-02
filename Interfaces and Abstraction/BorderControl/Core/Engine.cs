@@ -11,11 +11,11 @@ namespace BorderControl.Core
         private IReader reader;
         private IWriter writer;
 
-        private List<ISociety> society;
+        private List<IBuyer> society;
 
         public Engine()
         {
-            this.society = new List<ISociety>();
+            this.society = new List<IBuyer>();
         }
 
         public Engine(IReader reader, IWriter writer)
@@ -27,72 +27,96 @@ namespace BorderControl.Core
 
         public void Run()
         {
-            AddUnits();
+            AddBuyers();
+
+            BuyingFood();
 
             PrintOutput();
         }
 
         private void PrintOutput()
         {
-            var year = reader.Read();
-            foreach (var unit in this.society
-                .OfType<IBirthable>()
-                .Where(u => u.BirthDate.EndsWith(year)))
-            {
-                this.writer.WriteLine(unit.BirthDate);
-            }
+            var food = this.society.Select(p => (IBuyer)p).Sum(person => person.Food);
+            writer.WriteLine(food);
         }
 
-        private void AddUnits()
+
+        private void BuyingFood()
         {
             string command;
-            ISociety unit = null;
 
-            while ((command = this.reader.Read()) != "End")
+            while ((command = reader.Read()) != "End")
             {
-                var cmdArgs = command.Split();
-                var name = cmdArgs[1];
-                if (command.StartsWith("Citizen"))
+                foreach (var person in this.society.Where(b => b.Name == command))
                 {
-                    unit = this.CreateCitizen(name, cmdArgs);
+                    person.BuyFood();
                 }
-                else if (command.StartsWith("Robot"))
-                {
-                    unit = CreateRobot(name, cmdArgs);
-                }
-                else if (command.StartsWith("Pet"))
-                {
-                    unit = CreatePet(name, cmdArgs);
-                }
-
-                this.society.Add(unit);
             }
         }
 
-        private IPet CreatePet(string name, string[] cmdArgs)
+        private void AddBuyers()
         {
-            IPet pet;
-            var birthDate = cmdArgs[2];
-            pet = new Pet(name, birthDate);
-            return pet;
+            var repeats = int.Parse(reader.Read());
+            for (int i = 0; i < repeats; i++)
+            {
+                var args = reader.Read().Split();
+                IBuyer human = null;
+                var name = args[0];
+                var age = int.Parse(args[1]);
+                if (args.Length == 4)
+                {
+                    human = AddHuman(args, name, age);
+                }
+                else if (args.Length == 3)
+                {
+                    human = AddRabel(args, name, age);
+                }
+
+                this.society.Add(human);
+            }
         }
 
-        private IHuman CreateCitizen(string name, string[] cmdArgs)
+        private static IBuyer AddRabel(string[] args, string name, int age)
         {
-            IHuman citizen;
-            var age = int.Parse(cmdArgs[2]);
-            var id = cmdArgs[3];
-            var birthdate = cmdArgs[4];
-            citizen = new Citizen(name, age, id, birthdate);
-            return citizen;
+            IBuyer rabel = null;
+            var group = args[2];
+            rabel = new Rabel(name, age, group);
+            return rabel;
         }
 
-        private IRobot CreateRobot(string model, string[] cmdArgs)
+        private static IBuyer AddHuman(string[] args, string name, int age)
         {
-            IRobot robot;
-            var id = cmdArgs[2];
-            robot = new Robot(model, id);
-            return robot;
+            IBuyer human = null;
+            var id = args[2];
+            var birthdate = args[3];
+            human = new Citizen(name, age, id, birthdate);
+            return human;
         }
+
+        //private IPet CreatePet(string name, string[] cmdArgs)
+        //{
+        //    IPet pet;
+        //    var birthDate = cmdArgs[2];
+        //    pet = new Pet(name, birthDate);
+        //    return pet;
+        //}
+
+        //private IHuman CreateCitizen(string name, string[] cmdArgs)
+        //{
+        //    IHuman citizen;
+        //    var age = int.Parse(cmdArgs[2]);
+        //    var id = cmdArgs[3];
+        //    var birthdate = cmdArgs[4];
+        //    citizen = new Citizen(name, age, id, birthdate);
+        //    return citizen;
+        //}
+
+        //private IRobot CreateRobot(string model, string[] cmdArgs)
+        //{
+        //    IRobot robot;
+        //    var id = cmdArgs[2];
+        //    robot = new Robot(model, id);
+        //    return robot;
+        //}
     }
 }

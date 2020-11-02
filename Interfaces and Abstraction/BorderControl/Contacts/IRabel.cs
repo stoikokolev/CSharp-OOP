@@ -1,8 +1,10 @@
 ﻿namespace BorderControl.Contacts
 {
-    public interface IHuman :  IIdentifiable, IBirthable, IBuyer
+    public interface IRabel : IBuyer
     {
 
         int Age { get; }
+
+        string Group { get; }
     }
 }

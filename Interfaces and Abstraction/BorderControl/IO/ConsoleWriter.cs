@@ -7,6 +7,6 @@ namespace BorderControl.IO
     {
         public void Write(string text) => Console.Write(text);
 
-        public void WriteLine(string text) => Console.WriteLine(text);
+        public void WriteLine(int text) => Console.WriteLine(text);
     }
 }
