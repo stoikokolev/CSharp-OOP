@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using BorderControl.Contacts;
+﻿using BorderControl.Contacts;
 
 namespace BorderControl.Models
 {
-    public class Citizen:IHuman,IBirthable
+    public class Citizen:IHuman
     {
         private int food;
 

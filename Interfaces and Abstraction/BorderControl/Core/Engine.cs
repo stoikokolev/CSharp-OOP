@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using BorderControl.Contacts;
-using BorderControl.IO;
 using BorderControl.Models;
 
 namespace BorderControl.Core
@@ -21,8 +20,8 @@ namespace BorderControl.Core
         public Engine(IReader reader, IWriter writer)
         : this()
         {
-            this.writer = new ConsoleWriter();
-            this.reader = new ConsoleReader();
+            this.writer = writer;
+            this.reader = reader;
         }
 
         public void Run()
@@ -36,7 +35,7 @@ namespace BorderControl.Core
 
         private void PrintOutput()
         {
-            var food = this.society.Select(p => (IBuyer)p).Sum(person => person.Food);
+            var food = this.society.Sum(person => person.Food);
             writer.WriteLine(food);
         }
 
@@ -78,18 +77,16 @@ namespace BorderControl.Core
 
         private static IBuyer AddRabel(string[] args, string name, int age)
         {
-            IBuyer rabel = null;
             var group = args[2];
-            rabel = new Rabel(name, age, group);
+            IBuyer rabel = new Rabel(name, age, @group);
             return rabel;
         }
 
         private static IBuyer AddHuman(string[] args, string name, int age)
         {
-            IBuyer human = null;
             var id = args[2];
             var birthdate = args[3];
-            human = new Citizen(name, age, id, birthdate);
+            IBuyer human = new Citizen(name, age, id, birthdate);
             return human;
         }
 

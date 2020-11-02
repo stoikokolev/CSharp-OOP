@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using BorderControl.Contacts;
+﻿using BorderControl.Contacts;
 
 namespace BorderControl.Models
 {

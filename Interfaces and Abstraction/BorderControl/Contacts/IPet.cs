@@ -1,6 +1,6 @@
 ﻿namespace BorderControl.Contacts
 {
-    public interface IPet : ISociety, IBirthable
+    public interface IPet : IBirthable
     {
         string Name { get; }
     }
