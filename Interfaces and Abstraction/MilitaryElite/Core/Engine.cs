@@ -98,7 +98,7 @@ namespace MilitaryElite.Core
 
             foreach (var soldier in this.soldiers)
             {
-                Console.WriteLine(soldier);
+                this.writer.WriteLine(soldier);
             }
         }
 

@@ -17,11 +17,16 @@ namespace MilitaryElite.Models
 
         private Corps TryParseCorps(string corpsStr)
         {
-            if (Enum.TryParse<Corps>(corpsStr, out var corps))
+            Corps corps;
+
+            bool parsed = Enum.TryParse<Corps>(corpsStr, out corps);
+            if (!parsed)
             {
                 throw new InvalidCorpsException();
             }
+
             return corps;
+
         }
 
         public override string ToString()

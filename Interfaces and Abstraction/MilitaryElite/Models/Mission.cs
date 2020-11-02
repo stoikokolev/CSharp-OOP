@@ -29,12 +29,17 @@ namespace MilitaryElite.Models
 
         private State TryParseState(string stateStr)
         {
-            if (Enum.TryParse<State>(stateStr, out var state))
+            State state;
+
+            bool parsed = Enum.TryParse<State>(stateStr, out state);
+            if (!parsed)
             {
-                throw new InvalidStateException();
+                throw new InvalidMissionCompletionException();
             }
+
             return state;
         }
 
+        public override string ToString() => $"Code Name: {this.CodeName} State: {this.State.ToString()}";
     }
 }

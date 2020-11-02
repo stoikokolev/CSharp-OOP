@@ -29,7 +29,7 @@ namespace MilitaryElite.Models
 
             foreach (var soldier in this.privates)
             {
-                sb.AppendLine(soldier.ToString());
+                sb.AppendLine($"  {soldier}");
             }
 
             return sb.ToString().TrimEnd();
