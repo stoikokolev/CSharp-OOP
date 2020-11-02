@@ -1,6 +1,6 @@
 ﻿namespace BorderControl.Contacts
 {
-    public interface IHuman : IIdentifiable
+    public interface IHuman : ISociety, IIdentifiable, IBirthable
     {
         string Name { get; }
 

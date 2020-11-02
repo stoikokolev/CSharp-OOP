@@ -11,11 +11,11 @@ namespace BorderControl.Core
         private IReader reader;
         private IWriter writer;
 
-        private List<IIdentifiable> society;
+        private List<ISociety> society;
 
         public Engine()
         {
-            this.society = new List<IIdentifiable>();
+            this.society = new List<ISociety>();
         }
 
         public Engine(IReader reader, IWriter writer)
@@ -34,49 +34,63 @@ namespace BorderControl.Core
 
         private void PrintOutput()
         {
-            var code = reader.Read();
-
-            foreach (var identifiable in this.society.Where(i => i.ID.EndsWith(code)))
+            var year = reader.Read();
+            foreach (var unit in this.society
+                .OfType<IBirthable>()
+                .Where(u => u.BirthDate.EndsWith(year)))
             {
-                writer.WriteLine(identifiable.ID);
+                this.writer.WriteLine(unit.BirthDate);
             }
         }
 
         private void AddUnits()
         {
             string command;
-            IIdentifiable unit = null;
+            ISociety unit = null;
 
             while ((command = this.reader.Read()) != "End")
             {
                 var cmdArgs = command.Split();
-                var name = cmdArgs[0];
-                if (cmdArgs.Length == 3)
+                var name = cmdArgs[1];
+                if (command.StartsWith("Citizen"))
                 {
                     unit = this.CreateCitizen(name, cmdArgs);
                 }
-                else if (cmdArgs.Length == 2)
+                else if (command.StartsWith("Robot"))
                 {
                     unit = CreateRobot(name, cmdArgs);
+                }
+                else if (command.StartsWith("Pet"))
+                {
+                    unit = CreatePet(name, cmdArgs);
                 }
 
                 this.society.Add(unit);
             }
         }
 
-        private Citizen CreateCitizen(string name, string[] cmdArgs)
+        private IPet CreatePet(string name, string[] cmdArgs)
         {
-            Citizen citizen;
-            var age = int.Parse(cmdArgs[1]);
-            var id = cmdArgs[2];
-            citizen = new Citizen(name, age, id);
+            IPet pet;
+            var birthDate = cmdArgs[2];
+            pet = new Pet(name, birthDate);
+            return pet;
+        }
+
+        private IHuman CreateCitizen(string name, string[] cmdArgs)
+        {
+            IHuman citizen;
+            var age = int.Parse(cmdArgs[2]);
+            var id = cmdArgs[3];
+            var birthdate = cmdArgs[4];
+            citizen = new Citizen(name, age, id, birthdate);
             return citizen;
         }
 
-        private Robot CreateRobot(string model, string[] cmdArgs)
+        private IRobot CreateRobot(string model, string[] cmdArgs)
         {
-            Robot robot;
-            var id = cmdArgs[1];
+            IRobot robot;
+            var id = cmdArgs[2];
             robot = new Robot(model, id);
             return robot;
         }
