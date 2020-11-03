@@ -45,9 +45,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BorderControl", "Interfaces
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Polymorphism", "Polymorphism", "{97CB580C-67E5-4164-BF11-B45C039A12BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vehicles", "Polymorphism\Vehicles\Vehicles.csproj", "{622F1573-E197-4950-8407-8F7E137DC5F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vehicles", "Polymorphism\Vehicles\Vehicles.csproj", "{622F1573-E197-4950-8407-8F7E137DC5F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WildFarm", "Polymorphism\WildFarm\WildFarm.csproj", "{16044272-F1D7-4894-A473-4779A66BC27D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WildFarm", "Polymorphism\WildFarm\WildFarm.csproj", "{16044272-F1D7-4894-A473-4779A66BC27D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raiding", "Polymorphism\Raiding\Raiding.csproj", "{8DC68812-6D3F-4C04-AF96-747B247E02E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -131,6 +133,10 @@ Global
 		{16044272-F1D7-4894-A473-4779A66BC27D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16044272-F1D7-4894-A473-4779A66BC27D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16044272-F1D7-4894-A473-4779A66BC27D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DC68812-6D3F-4C04-AF96-747B247E02E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DC68812-6D3F-4C04-AF96-747B247E02E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DC68812-6D3F-4C04-AF96-747B247E02E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DC68812-6D3F-4C04-AF96-747B247E02E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -155,6 +161,7 @@ Global
 		{88A57833-ACE4-46A2-AB3B-32F02B8FE36A} = {619E3168-7BF8-449F-A5FA-F3284E53B63F}
 		{622F1573-E197-4950-8407-8F7E137DC5F7} = {97CB580C-67E5-4164-BF11-B45C039A12BA}
 		{16044272-F1D7-4894-A473-4779A66BC27D} = {97CB580C-67E5-4164-BF11-B45C039A12BA}
+		{8DC68812-6D3F-4C04-AF96-747B247E02E3} = {97CB580C-67E5-4164-BF11-B45C039A12BA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {398003F2-FEFC-46CD-8380-85924130F2DD}
