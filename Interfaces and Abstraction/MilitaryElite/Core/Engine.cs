@@ -62,7 +62,7 @@ namespace MilitaryElite.Core
 
                         soldier = engineer;
                     }
-                    catch (InvalidCorpsException e)
+                    catch (InvalidCorpsException)
                     {
                         continue;
                     }
@@ -78,7 +78,7 @@ namespace MilitaryElite.Core
 
                         soldier = commando;
                     }
-                    catch (InvalidCorpsException e)
+                    catch (InvalidCorpsException )
                     {
                         continue;
                     }
@@ -118,7 +118,7 @@ namespace MilitaryElite.Core
                     IMission mission = new Mission(missionCodeName, MissionState);
                     commando.AddMission(mission);
                 }
-                catch (InvalidMissionCompletionException e)
+                catch (InvalidMissionCompletionException )
                 {
                     continue;
                 }
