@@ -18,6 +18,7 @@ namespace Vehicles.Core
         {
             var car = ProduceVehicle();
             var truck = ProduceVehicle();
+            var bus = ProduceVehicle();
 
             var repeats = int.Parse(Console.ReadLine());
 
@@ -27,7 +28,7 @@ namespace Vehicles.Core
 
                 try
                 {
-                    ProcessCommand(cmdArgs, car, truck);
+                    ProcessCommand(cmdArgs, car, truck, (Bus)bus);
 
                 }
                 catch (InvalidOperationException e)
@@ -38,9 +39,10 @@ namespace Vehicles.Core
 
             Console.WriteLine(car);
             Console.WriteLine(truck);
+            Console.WriteLine(bus);
         }
 
-        private static void ProcessCommand(string[] cmdArgs, Vehicle car, Vehicle truck)
+        private static void ProcessCommand(string[] cmdArgs, Vehicle car, Vehicle truck, Bus bus)
         {
             var cmdType = cmdArgs[0];
             var vehicleType = cmdArgs[1];
@@ -57,6 +59,17 @@ namespace Vehicles.Core
                 {
                     Console.WriteLine(truck.Drive(arg));
                 }
+                else if (vehicleType == "Bus")
+                {
+                    Console.WriteLine(bus.Drive(arg));
+                }
+            }
+            else if (cmdType == "DriveEmpty")
+            {
+                if (vehicleType == "Bus")
+                {
+                    Console.WriteLine(bus.DriveEmpty(arg));
+                }
             }
             else if (cmdType == "Refuel")
             {
@@ -68,6 +81,10 @@ namespace Vehicles.Core
                 {
                     truck.Refuel(arg);
                 }
+                else if (vehicleType == "Bus")
+                {
+                    bus.Refuel(arg);
+                }
             }
         }
 
@@ -77,7 +94,8 @@ namespace Vehicles.Core
             var type = args[0];
             var fuelQty = double.Parse(args[1]);
             var fuelConsumption = double.Parse(args[2]);
-            Vehicle vehicle = vehicleFactory.ProduceVehicle(type, fuelQty, fuelConsumption);
+            var tankCapacity = double.Parse(args[3]);
+            Vehicle vehicle = vehicleFactory.ProduceVehicle(type, fuelQty, fuelConsumption, tankCapacity);
             return vehicle;
         }
 

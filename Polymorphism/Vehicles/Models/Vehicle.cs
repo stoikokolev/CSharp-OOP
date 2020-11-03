@@ -6,13 +6,33 @@ namespace Vehicles.Models
 {
     public abstract class Vehicle : IDrivable, IRefuelable
     {
-        public Vehicle(double fuelQuantity, double fuelConsumption)
+        private double fuelQuantity;
+
+        public Vehicle(double fuelQuantity, double fuelConsumption, double tankCapacity)
         {
+            this.TankCapacity = tankCapacity;
             this.FillQuantity = fuelQuantity;
             this.FuelConsumption = fuelConsumption;
         }
 
-        public double FillQuantity { get; private set; }
+        public double TankCapacity { get; }
+
+        public double FillQuantity
+        {
+            get => this.fuelQuantity;
+            protected set
+            {
+                if (this.TankCapacity >= value)
+                {
+                    this.fuelQuantity = value;
+                }
+                else
+                {
+                    this.fuelQuantity = 0;
+                }
+
+            }
+        }
 
         public virtual double FuelConsumption { get; protected set; }
 
@@ -25,13 +45,21 @@ namespace Vehicles.Models
             }
 
             this.FillQuantity -= fuelNeeded;
-            
+
             return $"{this.GetType().Name} travelled {kilometers} km";
         }
 
         public virtual void Refuel(double fuelAmount)
         {
-            if (fuelAmount > 0)
+            if (fuelAmount <= 0)
+            {
+                throw new InvalidOperationException(ExceptionMessages.NegativeFuelExceptionMessage);
+            }
+            else if (fuelAmount + this.FillQuantity > this.TankCapacity)
+            {
+                throw new InvalidOperationException(string.Format(ExceptionMessages.NotEoughSpaceInTankExceptionMessage, fuelAmount));
+            }
+            else
             {
                 this.FillQuantity += fuelAmount;
             }

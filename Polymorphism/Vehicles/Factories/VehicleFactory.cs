@@ -6,16 +6,20 @@ namespace Vehicles.Factories
 {
     public class VehicleFactory
     {
-        public Vehicle ProduceVehicle(string type, double fuelQty, double FuelConsumption)
+        public Vehicle ProduceVehicle(string type, double fuelQty, double FuelConsumption,double tankCapacity)
         {
             Vehicle vehicle = null;
             if (type == "Car")
             {
-                vehicle = new Car(fuelQty, FuelConsumption);
+                vehicle = new Car(fuelQty, FuelConsumption,tankCapacity);
             }
             else if (type == "Truck")
             {
-                vehicle = new Truck(fuelQty, FuelConsumption);
+                vehicle = new Truck(fuelQty, FuelConsumption,tankCapacity);
+            }
+            else if (type == "Bus")
+            {
+                vehicle = new Bus(fuelQty, FuelConsumption, tankCapacity);
             }
 
             if (vehicle == null)
