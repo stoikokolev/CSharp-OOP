@@ -80,38 +80,46 @@ namespace WildFarm.Core
             var name = animalArgs[1];
             var weight = double.Parse(animalArgs[2]);
 
-            if (animalType == "Owl")
+            switch (animalType)
             {
-                var wingSize = double.Parse(animalArgs[3]);
-                animal = new Owl(name, weight, wingSize);
-            }
-            else if (animalType == "Hen")
-            {
-                var wingSize = double.Parse(animalArgs[3]);
-                animal = new Hen(name, weight, wingSize);
-            }
-            else
-            {
-                var livingRegion = animalArgs[3];
-                if (animalType == "Dog")
+                case "Owl":
                 {
-                    animal = new Dog(name, weight, livingRegion);
+                    var wingSize = double.Parse(animalArgs[3]);
+                    animal = new Owl(name, weight, wingSize);
+                    break;
                 }
-                else if (animalType == "Mouse")
+                case "Hen":
                 {
-                    animal = new Mouse(name, weight, livingRegion);
+                    var wingSize = double.Parse(animalArgs[3]);
+                    animal = new Hen(name, weight, wingSize);
+                    break;
                 }
-                else
+                default:
                 {
-                    var breed = animalArgs[4];
-                    if (animalType == "Tiger")
+                    var livingRegion = animalArgs[3];
+                    switch (animalType)
                     {
-                        animal = new Tiger(name, weight, livingRegion, breed);
+                        case "Dog":
+                            animal = new Dog(name, weight, livingRegion);
+                            break;
+                        case "Mouse":
+                            animal = new Mouse(name, weight, livingRegion);
+                            break;
+                        default:
+                        {
+                            var breed = animalArgs[4];
+                            animal = animalType switch
+                            {
+                                "Tiger" => new Tiger(name, weight, livingRegion, breed),
+                                "Cat" => new Cat(name, weight, livingRegion, breed),
+                                _ => animal
+                            };
+
+                            break;
+                        }
                     }
-                    else if (animalType == "Cat")
-                    {
-                        animal = new Cat(name, weight, livingRegion, breed);
-                    }
+
+                    break;
                 }
             }
 
