@@ -5,7 +5,7 @@ namespace Vehicles.Models
 {
     public class Bus : Vehicle
     {
-        public const double FUEL_CONSUMPTION_INCREMENT = 1.4;
+        private const double FUEL_CONSUMPTION_INCREMENT = 1.4;
 
         public Bus(double fuelQuantity, double fuelConsumption, double tankCapacity)
             : base(fuelQuantity, fuelConsumption, tankCapacity)
