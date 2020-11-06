@@ -8,6 +8,8 @@ namespace Logger.Models.Contracts
 
         Level Level { get; }
 
+        long MessagesAppend { get; }
+
         void Append(IError error);
     }
 }

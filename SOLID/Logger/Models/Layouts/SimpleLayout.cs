@@ -1,4 +1,5 @@
-﻿using Logger.Models.Contracts;
+﻿using System;
+using Logger.Models.Contracts;
 
 namespace Logger.Models.Layouts
 {
