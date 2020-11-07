@@ -8,9 +8,6 @@ namespace Shapes.Models
 
         public abstract double CalculateArea();
 
-        public virtual string Draw()
-        {
-            return "Drawing ";
-        }
+        public virtual string Draw() => $"Drawing {this.GetType().Name}";
     }
 }

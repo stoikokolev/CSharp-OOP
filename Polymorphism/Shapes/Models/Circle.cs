@@ -1,8 +1,10 @@
 ﻿using System;
+using Shapes.Common;
+using Shapes.Models.Contracts;
 
 namespace Shapes.Models
 {
-    public class Circle : Shape
+    public class Circle : Shape, ICircle
     {
         private double radius;
 
@@ -11,14 +13,14 @@ namespace Shapes.Models
             this.Radius = radius;
         }
 
-        private double Radius
+        public double Radius
         {
             get => this.radius;
-            set
+            private set
             {
                 if (value <= 0)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException(GlobalConstants.NEGATIVE_OR_ZENO_MESSAGE);
                 }
 
                 this.radius = value;
@@ -29,9 +31,7 @@ namespace Shapes.Models
 
         public override double CalculateArea() => Math.PI * this.Radius * this.Radius;
 
-        public override string Draw()
-        {
-            return base.Draw() + this.GetType().Name;
-        }
+        
+
     }
 }

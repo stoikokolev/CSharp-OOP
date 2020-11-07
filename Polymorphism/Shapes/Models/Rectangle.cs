@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+using Shapes.Common;
+using Shapes.Models.Contracts;
 
 namespace Shapes.Models
 {
-    public class Rectangle:Shape
+    public class Rectangle:Shape, IRectangle
     {
         private double height;
         private double width;
@@ -14,28 +16,28 @@ namespace Shapes.Models
             this.Height = height;
         }
 
-        private double Height
+        public double Height
         {
             get => this.height;
-            set
+            private set
             {
                 if (value <= 0)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException(GlobalConstants.NEGATIVE_OR_ZENO_MESSAGE);
                 }
 
                 this.height = value;
             }
         }
 
-        private double Width
+        public double Width
         {
             get => this.width;
-            set
+            private set
             {
                 if (value <= 0)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException(GlobalConstants.NEGATIVE_OR_ZENO_MESSAGE);
                 }
 
                 this.width = value;
@@ -46,9 +48,6 @@ namespace Shapes.Models
 
         public override double CalculateArea() => this.Width * this.Height;
 
-        public override string Draw()
-        {
-            return base.Draw()+this.GetType().Name;
-        }
+       
     }
 }
