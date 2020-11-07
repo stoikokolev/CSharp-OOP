@@ -14,10 +14,7 @@ public class Topping
 
     public string ToppingType
     {
-        get
-        {
-            return this.toppingType;
-        }
+        get => this.toppingType;
         private set
         {
             if (value != "meat" && value != "veggies" && value != "cheese" && value != "sauce")
@@ -32,10 +29,7 @@ public class Topping
 
     public double Weight
     {
-        get
-        {
-            return this.weight;
-        }
+        get => this.weight;
         private set
         {
             if (value < 1 || value > 50)
