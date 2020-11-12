@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections;
 
 namespace Database
 {
-    public class Database
+    public class Database : IEnumerable
     {
         private int[] data;
 
@@ -57,6 +58,11 @@ namespace Database
             }
 
             return coppyArray;
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
     }
 }
