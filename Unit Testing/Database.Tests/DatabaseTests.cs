@@ -5,20 +5,20 @@ namespace Tests
 {
     public class DatabaseTests
     {
-        private Database database;
+        private Database.Database database;
         private readonly int[] initialData = new[] { 1, 2 };
 
         [SetUp]
         public void Setup()
         {
-            this.database = new Database(initialData);
+            this.database = new Database.Database(initialData);
         }
 
         [Test]
         public void TestIfTheConstructorWorksCorrectly()
         {
             var data = new int[] { 1, 2, 3 };
-            this.database = new Database(data);
+            this.database = new Database.Database(data);
 
             var expectedCount = data.Length;
             var actualCount = this.database.Count;
@@ -33,7 +33,7 @@ namespace Tests
 
             Assert.Throws<InvalidOperationException>(() =>
            {
-               this.database = new Database(data);
+               this.database = new Database.Database(data);
            });
         }
 
@@ -64,7 +64,7 @@ namespace Tests
         public void RemoveShouldThrowExceptionWhenDatabaseIsEmpty()
         {
             var data = new int[0];
-            this.database=new Database(data);
+            this.database=new Database.Database(data);
 
 
             Assert.Throws<InvalidOperationException>(() => { this.database.Remove(); });
@@ -86,7 +86,7 @@ namespace Tests
         [TestCase(new[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16})]
         public void FetchShouldReturnCopyOfData(int[] expectedData)
         {
-            this.database=new Database(expectedData);
+            this.database=new Database.Database(expectedData);
 
             var actualData = this.database.Fetch();
 
