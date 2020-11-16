@@ -9,5 +9,9 @@
         public static string InvalidReceiverUsernameMessage = "Receiver name cannot be empty or whitespace!";
 
         public static string InvalidAmountMessage = "Amount cannot be zero or negative!";
+
+        public static string ExistingTransactionMessage = "Transaction already exist!";
+
+        public static string NotExistingTransactionMessage = "Transaction not exist!";
     }
 }
