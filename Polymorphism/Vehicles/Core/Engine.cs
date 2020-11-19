@@ -7,7 +7,7 @@ namespace Vehicles.Core
 {
     public class Engine : IEngine
     {
-        private VehicleFactory vehicleFactory;
+        private readonly VehicleFactory vehicleFactory;
 
         public Engine()
         {

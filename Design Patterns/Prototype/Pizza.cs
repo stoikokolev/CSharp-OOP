@@ -2,10 +2,10 @@
 {
     public class Pizza : PizzaPrototype
     {
-        private string dough;
-        private string sauce;
-        private string meat;
-        private string cheese;
+        private readonly string dough;
+        private readonly string sauce;
+        private readonly string meat;
+        private readonly string cheese;
 
         public Pizza(string dough, string sauce, string meat, string cheese)
         {

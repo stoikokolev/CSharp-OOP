@@ -11,10 +11,10 @@ namespace MilitaryElite.Core
 {
     public class Engine : IEngine
     {
-        private IReader reader;
-        private IWriter writer;
+        private readonly IReader reader;
+        private readonly IWriter writer;
 
-        private ICollection<ISoldier> soldiers;
+        private readonly ICollection<ISoldier> soldiers;
 
         private Engine()
         {

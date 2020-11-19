@@ -7,10 +7,10 @@ namespace BorderControl.Core
 {
     public class Engine : IEngine
     {
-        private IReader reader;
-        private IWriter writer;
+        private readonly IReader reader;
+        private readonly IWriter writer;
 
-        private List<IBuyer> society;
+        private readonly List<IBuyer> society;
 
         public Engine()
         {
