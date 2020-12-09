@@ -131,6 +131,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Online Shop", "Online Shop"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShop", "Exam Preparation\OnlineShop\OnlineShop.csproj", "{64E0A63F-1709-40E4-B053-CACBB6284620}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Counter Strike", "Counter Strike", "{35CB0507-7208-448E-A47B-1053141BC864}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CounterStrike", "Exam Preparation\CounterStrike\CounterStrike.csproj", "{04D95A48-1247-4129-8571-CC30C712685C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -325,6 +329,10 @@ Global
 		{64E0A63F-1709-40E4-B053-CACBB6284620}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64E0A63F-1709-40E4-B053-CACBB6284620}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64E0A63F-1709-40E4-B053-CACBB6284620}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04D95A48-1247-4129-8571-CC30C712685C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04D95A48-1247-4129-8571-CC30C712685C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04D95A48-1247-4129-8571-CC30C712685C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04D95A48-1247-4129-8571-CC30C712685C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -383,6 +391,8 @@ Global
 		{01359404-48EF-4919-9289-A5C7257635AC} = {FDC5BE17-873F-4B7C-AE71-3C57281E6A07}
 		{A69970E5-678E-4E88-928A-B13C161A62F0} = {03D05584-B1F1-41B7-9443-A0AC67715E79}
 		{64E0A63F-1709-40E4-B053-CACBB6284620} = {A69970E5-678E-4E88-928A-B13C161A62F0}
+		{35CB0507-7208-448E-A47B-1053141BC864} = {03D05584-B1F1-41B7-9443-A0AC67715E79}
+		{04D95A48-1247-4129-8571-CC30C712685C} = {35CB0507-7208-448E-A47B-1053141BC864}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {398003F2-FEFC-46CD-8380-85924130F2DD}
