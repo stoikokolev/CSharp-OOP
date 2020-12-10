@@ -135,6 +135,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Counter Strike", "Counter S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CounterStrike", "Exam Preparation\CounterStrike\CounterStrike.csproj", "{04D95A48-1247-4129-8571-CC30C712685C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Easter Races", "Easter Races", "{EF702198-D3DD-4B2E-B4B2-E6C8A71E9DB9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasterRaces", "Exam Preparation\EasterRaces\EasterRaces.csproj", "{E9B3822E-0FE6-4B66-80F3-176E78BA446B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -333,6 +337,10 @@ Global
 		{04D95A48-1247-4129-8571-CC30C712685C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04D95A48-1247-4129-8571-CC30C712685C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04D95A48-1247-4129-8571-CC30C712685C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9B3822E-0FE6-4B66-80F3-176E78BA446B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9B3822E-0FE6-4B66-80F3-176E78BA446B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9B3822E-0FE6-4B66-80F3-176E78BA446B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9B3822E-0FE6-4B66-80F3-176E78BA446B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -393,6 +401,8 @@ Global
 		{64E0A63F-1709-40E4-B053-CACBB6284620} = {A69970E5-678E-4E88-928A-B13C161A62F0}
 		{35CB0507-7208-448E-A47B-1053141BC864} = {03D05584-B1F1-41B7-9443-A0AC67715E79}
 		{04D95A48-1247-4129-8571-CC30C712685C} = {35CB0507-7208-448E-A47B-1053141BC864}
+		{EF702198-D3DD-4B2E-B4B2-E6C8A71E9DB9} = {03D05584-B1F1-41B7-9443-A0AC67715E79}
+		{E9B3822E-0FE6-4B66-80F3-176E78BA446B} = {EF702198-D3DD-4B2E-B4B2-E6C8A71E9DB9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {398003F2-FEFC-46CD-8380-85924130F2DD}
