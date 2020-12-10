@@ -142,7 +142,7 @@ namespace EasterRaces.Core.Entities
             }
 
             var winners = race.Drivers.OrderByDescending(x => x.Car.CalculateRacePoints(race.Laps)).Take(3).ToArray();
-
+            this.races.Remove(race);
             var sb = new StringBuilder();
             sb.AppendLine(string.Format(OutputMessages.DriverFirstPosition, winners[0].Name, raceName));
             sb.AppendLine(string.Format(OutputMessages.DriverSecondPosition, winners[1].Name, raceName));
