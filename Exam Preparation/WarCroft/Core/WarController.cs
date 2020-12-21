@@ -10,19 +10,20 @@ namespace WarCroft.Core
 {
 	public class WarController
     {
-        private readonly ICollection<Character> party;
-        private readonly ICollection<Item> itemPool;
+        private readonly ICollection<Character> _party;
+        private readonly ICollection<Item> _itemPool;
 
 		public WarController()
 		{
-			this.party=new List<Character>();
-			this.itemPool=new List<Item>();
+			this._party=new List<Character>();
+			this._itemPool=new List<Item>();
 		}
 
 		public string JoinParty(string[] args)
         {
             var characterType = args[0];
             var name = args[1];
+
             Character character = characterType switch
             {
                 "Warrior" => new Warrior(name),
@@ -30,7 +31,7 @@ namespace WarCroft.Core
                 _ => throw new ArgumentException(string.Format(ExceptionMessages.InvalidCharacterType, characterType))
             };
             
-			this.party.Add(character);
+			this._party.Add(character);
 
             return string.Format(SuccessMessages.JoinParty, name);
         }
@@ -46,7 +47,7 @@ namespace WarCroft.Core
                 _ => throw new ArgumentException(string.Format(ExceptionMessages.InvalidItem, name))
             };
             
-            this.itemPool.Add(item);
+            this._itemPool.Add(item);
 
             return string.Format(SuccessMessages.AddItemToPool, name);
         }
@@ -57,13 +58,13 @@ namespace WarCroft.Core
 
             var character = GetCharacterByName(name);
 
-            if (this.itemPool.Count == 0)
+            if (this._itemPool.Count == 0)
             {
                 throw new InvalidOperationException(ExceptionMessages.ItemPoolEmpty);
             }
 
-            var item = this.itemPool.Last();
-            this.itemPool.Remove(item);
+            var item = this._itemPool.Last();
+            this._itemPool.Remove(item);
             character.Bag.AddItem(item);
 
             return string.Format(SuccessMessages.PickUpItem, name, item.GetType().Name);
@@ -78,7 +79,7 @@ namespace WarCroft.Core
 
             var item = character.Bag.GetItem(itemName);
 
-            item.AffectCharacter(character);
+            character.UseItem(item);
 
             return string.Format(SuccessMessages.UsedItem, characterName, itemName);
         }
@@ -86,7 +87,8 @@ namespace WarCroft.Core
         public string GetStats()
 		{
             var sb = new StringBuilder();
-            foreach (var character in this.party
+
+            foreach (var character in this._party
                 .OrderByDescending(x=>x.IsAlive)
                 .ThenByDescending(x=>x.Health))
             {
@@ -156,7 +158,7 @@ namespace WarCroft.Core
 
         private Character GetCharacterByName(string characterName)
         {
-            var character = this.party.FirstOrDefault(x => x.Name == characterName);
+            var character = this._party.FirstOrDefault(x => x.Name == characterName);
 
             if (character is null)
             {

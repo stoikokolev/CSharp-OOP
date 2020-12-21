@@ -7,8 +7,8 @@ namespace WarCroft.Entities.Characters
 {
     public abstract class Character
     {
-        private string name;
-        private double health;
+        private string _name;
+        private double _health;
 
 
         protected Character(string name, double health, double armor, double abilityPoints, IBag bag)
@@ -24,7 +24,7 @@ namespace WarCroft.Entities.Characters
 
         public string Name
         {
-            get => this.name;
+            get => this._name;
             private set
             {
                 if (string.IsNullOrWhiteSpace(value))
@@ -32,7 +32,7 @@ namespace WarCroft.Entities.Characters
                     throw new ArgumentException(ExceptionMessages.CharacterNameInvalid);
                 }
 
-                this.name = value;
+                this._name = value;
             }
         }
 
@@ -40,21 +40,21 @@ namespace WarCroft.Entities.Characters
 
         public double Health
         {
-            get => this.health;
+            get => this._health;
             set
             {
                 if (value <= 0)
                 {
-                    this.health = 0;
+                    this._health = 0;
                     this.IsAlive = false;
                 }
                 else if (value > this.BaseHealth)
                 {
-                    this.health = this.BaseHealth;
+                    this._health = this.BaseHealth;
                 }
                 else
                 {
-                    this.health = value;
+                    this._health = value;
                 }
             }
         }
@@ -78,14 +78,14 @@ namespace WarCroft.Entities.Characters
                 hitPoints -= this.Armor;
                 this.Armor = 0;
 
-                if (hitPoints >= this.health)
+                if (hitPoints >= this._health)
                 {
-                    this.health = 0;
+                    this._health = 0;
                     this.IsAlive = false;
                 }
                 else
                 {
-                    this.health -= hitPoints;
+                    this._health -= hitPoints;
                 }
             }
             else

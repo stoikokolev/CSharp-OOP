@@ -1,8 +1,9 @@
 ﻿namespace WarCroft.Entities.Inventory
 {
-    public class Satchel:Bag
+    public class Satchel : Bag
     {
-        public Satchel() : base(20)
+        public Satchel()
+            : base(20)
         {
         }
     }

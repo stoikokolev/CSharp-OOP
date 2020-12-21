@@ -8,19 +8,19 @@ namespace WarCroft.Entities.Inventory
 {
     public abstract class Bag : IBag
     {
-        private readonly List<Item> items;
+        private readonly List<Item> _items;
 
         protected Bag(int capacity)
         {
             this.Capacity = capacity;
-            this.items=new List<Item>();
+            this._items=new List<Item>();
         }
 
         public int Capacity { get; set; } = 100;
 
-        public int Load => this.items.Select(x => x.Weight).Sum();
+        public int Load => this._items.Select(x => x.Weight).Sum();
 
-        public IReadOnlyCollection<Item> Items => this.items.AsReadOnly();
+        public IReadOnlyCollection<Item> Items => this._items.AsReadOnly();
 
         public void AddItem(Item item)
         {
@@ -29,24 +29,24 @@ namespace WarCroft.Entities.Inventory
                 throw new InvalidOperationException(ExceptionMessages.ExceedMaximumBagCapacity);
             }
 
-            this.items.Add(item);
+            this._items.Add(item);
         }
 
         public Item GetItem(string name)
         {
-            if (this.items.Count == 0)
+            if (this._items.Count == 0)
             {
                 throw new InvalidOperationException(ExceptionMessages.EmptyBag);
             }
 
-            var item = this.items.FirstOrDefault(x => x.GetType().Name == name);
+            var item = this._items.FirstOrDefault(x => x.GetType().Name == name);
 
             if (item is null)
             {
                 throw new ArgumentException(string.Format(ExceptionMessages.ItemNotFoundInBag,name));
             }
 
-            this.items.Remove(item);
+            this._items.Remove(item);
 
             return item;
         }

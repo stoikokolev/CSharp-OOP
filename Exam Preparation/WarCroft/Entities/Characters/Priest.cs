@@ -7,7 +7,7 @@ namespace WarCroft.Entities.Characters
 {
     public class Priest : Character, IHealer
     {
-        public Priest(string name)
+       public Priest(string name)
             : base(name, 50, 25, 40, new Backpack())
         {
 
